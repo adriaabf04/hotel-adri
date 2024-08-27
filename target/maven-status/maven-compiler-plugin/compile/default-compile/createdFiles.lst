@@ -14,6 +14,8 @@ com/example/hoteladri/controller/PagoController.class
 com/example/hoteladri/MainFile.class
 com/example/hoteladri/model/Reserva.class
 com/example/hoteladri/repository/AdministradorRespository.class
+com/example/hoteladri/config/SecurityConfig.class
+com/example/hoteladri/service/CustomUserDetailsService.class
 com/example/hoteladri/controller/ReservaController.class
 com/example/hoteladri/controller/AdministradorController.class
 com/example/hoteladri/repository/PagoRepository.class

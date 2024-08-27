@@ -1,6 +1,7 @@
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/HelloResponse.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/HotelAdriApplication.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/MainFile.java
+/home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/config/SecurityConfig.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/AdministradorController.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/ClienteController.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/HabitacionController.java
@@ -22,6 +23,7 @@
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/repository/ReservaRepository.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/service/AdministradorService.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/service/ClienteService.java
+/home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/service/CustomUserDetailsService.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/service/HabitacionService.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/service/PagoService.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/service/ReservaService.java

@@ -14,17 +14,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/administradores")
 public class AdministradorController {
-    
+
         @Autowired
-        private AdministradorService administradorRepository;
+        private AdministradorService administradorService;
     
         @GetMapping
         public List<Administrador> obtenerUsuarios() {
-            return administradorRepository.obtenerTodosLosUsuarios();
+            return administradorService.obtenerTodosLosUsuarios();
         }
     
         @PostMapping
         public Administrador guardarUsuario(@RequestBody Administrador administrador) {
-            return administradorRepository.guardarUsuario(administrador);
+            return administradorService.guardarUsuario(administrador);
         }
 }
