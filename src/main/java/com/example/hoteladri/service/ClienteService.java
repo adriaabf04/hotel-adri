@@ -21,4 +21,16 @@ public class ClienteService {
         return clienteRepository.save(usuario);
     }
 
+    public Cliente obtenerUsuarioPorId(Long id) {
+        return clienteRepository.findById(id).orElse(null);
+    }
+
+    public void eliminarUsuarioPorId(Long id) {
+        clienteRepository.deleteById(id);
+    }
+
+    public Cliente actualizarUsuario(Cliente usuario) {
+        return clienteRepository.save(usuario);
+    }
+
 }

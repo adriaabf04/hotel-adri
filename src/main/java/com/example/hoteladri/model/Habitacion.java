@@ -18,6 +18,8 @@ public class Habitacion {
     @Enumerated(EnumType.STRING)
     private EstadoHabitacion estado;
     
+    public Habitacion() {
+    }
 
     public Habitacion(int numero, String tipo, double precio, EstadoHabitacion estado) {
         this.numero = numero;

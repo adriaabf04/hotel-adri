@@ -20,6 +20,9 @@ public class Cliente {
         this.email = email;
     }
 
+    public Cliente() {
+    }
+
     public Long getId() {
         return id;
     }
