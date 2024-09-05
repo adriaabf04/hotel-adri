@@ -13,16 +13,16 @@ import java.util.List;
 @RequestMapping("/pagos")
 public class PagoController {
     @Autowired
-    private PagoService administradorRepository;
+    private PagoService pagoService;
 
     @GetMapping
     public List<Pago> obtenerPagos() {
-        return administradorRepository.obtenerTodosLosPagos();
+        return pagoService.obtenerTodosLosPagos();
     }
 
     @GetMapping()
     @RequestMapping("/{id}")
     public Pago obtenerPago(Long id) {
-        return administradorRepository.obtenerPagoPorId(id);
+        return pagoService.obtenerPagoPorId(id);
     }
 }

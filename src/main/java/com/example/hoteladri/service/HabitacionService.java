@@ -11,25 +11,25 @@ import java.util.List;
 @Service
 public class HabitacionService {
        @Autowired
-        private HabitacionRepository administradorRespository;
+        private HabitacionRepository habitacionRepository;
     
         public List<Habitacion> obtenerTodasLasHabitaciones() {
-            return administradorRespository.findAll();
+            return habitacionRepository.findAll();
         }
     
         public Habitacion guardarHabitacion(Habitacion habitacion) {
-            return administradorRespository.save(habitacion);
+            return habitacionRepository.save(habitacion);
         }
 
         public void eliminarHabitacion(Habitacion habitacion) {
-            administradorRespository.delete(habitacion);
+            habitacionRepository.delete(habitacion);
         }
 
         public Habitacion actualizarHabitacion(Habitacion habitacion) {
-            return administradorRespository.save(habitacion);
+            return habitacionRepository.save(habitacion);
         }
 
         public List<Habitacion> obtenerHabitacionesDisponibles() {
-            return administradorRespository.findByEstado(EstadoHabitacion.DISPONIBLE);
+            return habitacionRepository.findByEstado(EstadoHabitacion.DISPONIBLE);
         }
 }

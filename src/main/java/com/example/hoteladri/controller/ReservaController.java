@@ -18,38 +18,38 @@ import java.util.List;
 public class ReservaController {
         
         @Autowired
-        private ReservaService administradorRepository;
+        private ReservaService reservaService;
         
         @GetMapping
         public List<Reserva> obtenerReservas() {
-            return administradorRepository.obtenerTodasLasReservas();
+            return reservaService.obtenerTodasLasReservas();
         }
 
         @GetMapping("/{id}")
         public Reserva obtenerReserva(@PathVariable Long id) {
-            return administradorRepository.obtenerReservaPorId(id);
+            return reservaService.obtenerReservaPorId(id);
         }
 
         @GetMapping("/cliente/{cliente}")
         public List<Reserva> obtenerReservasPorCliente(@PathVariable Long cliente) {
-            return administradorRepository.obtenerReservasPorCliente(cliente);
+            return reservaService.obtenerReservasPorCliente(cliente);
         }
         
         @PostMapping
         @RequestMapping("/cliente/{cliente}/crear")
         public Reserva guardarReserva(@PathVariable Long cliente,  @RequestBody Reserva reserva) {
-            return administradorRepository.guardarReserva(reserva, cliente);
+            return reservaService.guardarReserva(reserva, cliente);
         }
 
         @PostMapping
         @RequestMapping("/cliente/{cliente}/confirmar")
         public Reserva confirmarReserva(@PathVariable Long cliente,  @RequestBody Reserva reserva) {
-            return administradorRepository.confirmarReserva(reserva, cliente);
+            return reservaService.confirmarReserva(reserva, cliente);
         }
 
         @DeleteMapping("/cliente/{cliente}/cancelar")
         public void cancelarReserva(@PathVariable Long cliente, @RequestBody Reserva reserva) {
-            administradorRepository.cancelarReserva(reserva, cliente);
+            reservaService.cancelarReserva(reserva, cliente);
         }
         
 }

@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class ReservaService {
         @Autowired
-        private ReservaRepository administradorRespository;
+        private ReservaRepository reservaRepository;
 
         @Autowired
         private ClienteRepository clienteRepository;
@@ -30,15 +30,15 @@ public class ReservaService {
         private PagoRepository pagoRepository;
     
         public List<Reserva> obtenerTodasLasReservas() {
-            return administradorRespository.findAll();
+            return reservaRepository.findAll();
         }
 
         public List<Reserva> obtenerReservasPorCliente(Long clienteId) {
-            return administradorRespository.findByClienteId(clienteId);
+            return reservaRepository.findByClienteId(clienteId);
         }
 
         public Reserva obtenerReservaPorId(Long id) {
-            return administradorRespository.findById(id).orElse(null);
+            return reservaRepository.findById(id).orElse(null);
         }
         
         
@@ -54,7 +54,7 @@ public class ReservaService {
                 reserva.setEstado(EstadoReserva.PENDIENTE);
             }
             
-            return administradorRespository.save(reserva);
+            return reservaRepository.save(reserva);
         }
 
         public Reserva confirmarReserva(Reserva reserva, Long clienteId) {
@@ -66,7 +66,7 @@ public class ReservaService {
             pago.setEstado(EstadoPago.TRANSEFERENCIA);
             pago.setFecha(new java.sql.Date(System.currentTimeMillis()));
             pagoRepository.save(pago);
-            return administradorRespository.save(reserva);
+            return reservaRepository.save(reserva);
         }
 
         public void cancelarReserva(Reserva reserva, Long clienteId) {
@@ -74,7 +74,7 @@ public class ReservaService {
                 Cliente cliente = clienteRepository.findById(clienteId).orElse(null);
                 reserva.setCliente(cliente);
                 reserva.cancelarReserva();
-                administradorRespository.save(reserva);
+                reservaRepository.save(reserva);
             } else {
                 throw new RuntimeException("No se puede cancelar una reserva confirmada");
             }
