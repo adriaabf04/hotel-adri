@@ -17,35 +17,35 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/habitaciones")
 public class HabitacionController {
         
-            @Autowired
-            private HabitacionService habitacionRepository;
+    @Autowired
+    private HabitacionService habitacionRepository;
         
-            @GetMapping
-            public List<Habitacion> obtenerHabitaciones() {
-                return habitacionRepository.obtenerTodasLasHabitaciones();
-            }
+    @GetMapping
+    public List<Habitacion> obtenerHabitaciones() {
+        return habitacionRepository.obtenerTodasLasHabitaciones();
+    }
         
-            @PostMapping
-            @RequestMapping("/crear")
-            public Habitacion guardarHabitacion(@RequestBody Habitacion habitacion) {
-                return habitacionRepository.guardarHabitacion(habitacion);
-            }
+    @PostMapping
+    @RequestMapping("/crear")
+    public Habitacion guardarHabitacion(@RequestBody Habitacion habitacion) {
+        return habitacionRepository.guardarHabitacion(habitacion);
+    }
 
-            @DeleteMapping
-            @RequestMapping("/eliminar")
-            public void eliminarHabitacion(@RequestBody Habitacion habitacion) {
-                habitacionRepository.eliminarHabitacion(habitacion);
-            }
+    @DeleteMapping
+    @RequestMapping("/eliminar")
+    public void eliminarHabitacion(@RequestBody Habitacion habitacion) {
+        habitacionRepository.eliminarHabitacion(habitacion);
+    }
 
-            @GetMapping
-            @RequestMapping("/disponibles")
-            public List<Habitacion> obtenerHabitacionesDisponibles() {
-                return habitacionRepository.obtenerHabitacionesDisponibles();
-            }
+    @GetMapping
+    @RequestMapping("/disponibles")
+    public List<Habitacion> obtenerHabitacionesDisponibles() {
+        return habitacionRepository.obtenerHabitacionesDisponibles();
+    }
 
-            @PostMapping
-            @RequestMapping("/actualizar")
-            public Habitacion actualizarHabitacion(@RequestBody Habitacion habitacion) {
-                return habitacionRepository.actualizarHabitacion(habitacion);
-            }
+    @PostMapping
+    @RequestMapping("/actualizar")
+    public Habitacion actualizarHabitacion(@RequestBody Habitacion habitacion) {
+        return habitacionRepository.actualizarHabitacion(habitacion);
+    }
 }

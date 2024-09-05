@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                    .requestMatchers("/", "/habitaciones", "/habitaciones/disponibles").permitAll()
+                    .requestMatchers("/", "/habitaciones", "/habitaciones/disponibles", "/reservas/{id}", "/reservas/{id}/crear", "/reservas/{id}/actualizar", "/reservas/{id}/cancelar").permitAll()
                     .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults())

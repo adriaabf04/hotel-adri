@@ -27,6 +27,9 @@ public class Pago {
         this.estado = estado;
     }
 
+    public Pago() {
+    }
+
     public Long getId() {
         return id;
     }

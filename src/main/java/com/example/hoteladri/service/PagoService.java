@@ -16,7 +16,7 @@ public class PagoService {
             return administradorRespository.findAll();
         }
     
-        public Pago guardarPago(Pago pago) {
-            return administradorRespository.save(pago);
+        public Pago obtenerPagoPorId(Long id) {
+            return administradorRespository.findById(id).orElse(null);
         }
 }
