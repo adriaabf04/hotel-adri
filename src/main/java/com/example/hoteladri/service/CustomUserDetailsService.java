@@ -6,21 +6,21 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
-import com.example.hoteladri.model.Administrador;
+import com.example.hoteladri.model.Admin;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final AdministradorService administradorService;
+    private final AdminService administradorService;
 
-    public CustomUserDetailsService(AdministradorService administradorService) {
+    public CustomUserDetailsService(AdminService administradorService) {
         this.administradorService = administradorService;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         // Aquí buscas el usuario en la base de datos a través del servicio de Administradores.
-        Administrador administrador = administradorService.encontrarPorEmail(email);
+        Admin administrador = administradorService.findByEmail(email);
         
         if (administrador != null) {
             User.UserBuilder builder = User.builder();
