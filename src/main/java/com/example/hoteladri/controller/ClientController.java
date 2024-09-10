@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.ArrayList;
 
+import com.example.hoteladri.dto.ClientDTO;
 @RestController
 @RequestMapping("/usuarios")
 public class ClientController {
@@ -22,7 +23,7 @@ public class ClientController {
 
     @GetMapping
     
-    public List<Client> obtainAllUsers() {
+    public ArrayList<ClientDTO> obtainAllUsers() {
         return clienteRepository.obtainAllUsers();
     }
 

@@ -1,6 +1,7 @@
 package com.example.hoteladri.controller;
 
 import com.example.hoteladri.model.Booking;
+import com.example.hoteladri.model.Client;
 import com.example.hoteladri.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,7 +32,7 @@ public class BookingController {
         }
 
         @GetMapping("/cliente/{cliente}")
-        public List<Booking> obtainBookingByClient(@PathVariable Long cliente) {
+        public List<Booking> obtainBookingByClient(@PathVariable Client cliente) {
             return reservaService.obtainBookingByClient(cliente);
         }
         

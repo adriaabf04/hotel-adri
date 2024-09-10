@@ -33,8 +33,8 @@ public class BookingService {
             return reservaRepository.findAll();
         }
 
-        public List<Booking> obtainBookingByClient(Long clienteId) {
-            return reservaRepository.findByClienteId(clienteId);
+        public List<Booking> obtainBookingByClient(Client client) {
+            return reservaRepository.findByClient(client);
         }
 
         public Booking obtainBookingById(Long id) {
