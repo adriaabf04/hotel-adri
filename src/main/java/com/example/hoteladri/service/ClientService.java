@@ -19,26 +19,35 @@ public class ClientService {
         List<Client> users = clienteRepository.findAll();
         ArrayList<ClientDTO> clientDTOList = new ArrayList<>();
         for (Client user : users) {
-            ClientDTO clientDTO = new ClientDTO(user.getName(), user.getSurname(), user.getEmail());
+            ClientDTO clientDTO = new ClientDTO(user.getId(), user.getName(), user.getSurname(), user.getEmail());
             clientDTOList.add(clientDTO);
         }
         return clientDTOList;
     }
 
-    public Client keepUser(Client usuario) {
-        return clienteRepository.save(usuario);
+    public ClientDTO keepUser(Client usuario) {
+        clienteRepository.save(usuario);
+        ClientDTO clientDTO = new ClientDTO(usuario.getId(), usuario.getName(), usuario.getSurname(), usuario.getEmail());
+        return clientDTO;
     }
 
-    public Client keepUserById(Long id) {
-        return clienteRepository.findById(id).orElse(null);
+    public ClientDTO keepUserById(Long id) {
+        Client client = clienteRepository.findById(id).orElse(null);
+        ClientDTO clientDTO = new ClientDTO(client.getId(),client.getName(), client.getSurname(), client.getEmail());
+        return clientDTO;
     }
 
     public void deleteUserById(Long id) {
         clienteRepository.deleteById(id);
     }
 
-    public Client updateUser(Client usuario) {
-        return clienteRepository.save(usuario);
+    public ClientDTO updateUser(Client usuario, Long id) {
+        Client client = clienteRepository.findById(id).orElse(null);
+        client.setName(usuario.getName());
+        client.setSurname(usuario.getSurname());
+        client.setEmail(usuario.getEmail());
+        ClientDTO clientDTO = new ClientDTO(client.getId(), client.getName(), client.getSurname(), client.getEmail());
+        return clientDTO;
     }
 
 }

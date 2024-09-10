@@ -2,5 +2,4 @@ com/example/hoteladri/HotelAdriApplication.class
 com/example/hoteladri/HelloResponse.class
 com/example/hoteladri/MainFile.class
 com/example/hoteladri/config/SecurityConfig.class
-com/example/hoteladri/service/CustomUserDetailsService.class
 com/example/hoteladri/model/Rol.class

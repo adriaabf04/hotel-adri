@@ -29,15 +29,15 @@ public class ClientController {
 
     @PostMapping
     @RequestMapping("/crear")
-    public Client keepUser(@RequestBody Client cliente) {
+    public ClientDTO keepUser(@RequestBody Client cliente) {
         return clienteRepository.keepUser(cliente);
     }
 
     @GetMapping
     @RequestMapping("/{id}")
-    public Client keepUserById(@PathVariable Long id) {
+    public ClientDTO keepUserById(@PathVariable Long id) {
         return clienteRepository.keepUserById(id);
-    }
+    }       
 
     @DeleteMapping
     @RequestMapping("/eliminar/{id}")
@@ -46,9 +46,9 @@ public class ClientController {
     }
 
     @PostMapping
-    @RequestMapping("/actualizar")
-    public Client updateUser(@RequestBody Client cliente) {
-        return clienteRepository.updateUser(cliente);
+    @RequestMapping("/actualizar/{id}")
+    public ClientDTO updateUser(@RequestBody Client cliente, @PathVariable Long id) {
+        return clienteRepository.updateUser(cliente, id);
     }
 
 
