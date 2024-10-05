@@ -44,7 +44,7 @@ public class BookingService {
         
         public Booking keepBooking(Booking reserva, Long clienteId) {
             Room habitacion = habitacionRepository.findById(reserva.getRoom().getId()).orElse(null);
-            if(habitacion.getStatus() == RoomStatus.BUSY) {
+            if(habitacion.getStatus() == RoomStatus.BUSY || habitacion.getStatus() == RoomStatus.MAINTENANCE) {
                 return null;
             } else {
                 Client cliente = clienteRepository.findById(clienteId).orElse(null);

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="987846f8-cb1f-4398-bf75-1581947cbf0f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/controller/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/RoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/hoteladri/service/RoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/HelloResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/HelloResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/HotelAdriApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/HotelAdriApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/MainFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/MainFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/BookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/BookingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/controller/RoomController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/dto/AdminDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/dto/AdminDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/dto/ClientDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/dto/ClientDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Booking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/BookingStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/BookingStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Payment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/PaymentStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/PaymentStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Rol.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Rol.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/RoomStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/model/RoomStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IAdminRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IAdminRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IBookingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IBookingRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IClientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IPaymentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IPaymentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IRoomRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/repository/IRoomRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/BookingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/BookingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/ClientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/CustomUserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/PaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/RoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/hoteladri/service/RoomService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2mWAv2HScoqbQcCnnChKnMrc898" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="987846f8-cb1f-4398-bf75-1581947cbf0f" name="Changes" comment="" />
+      <created>1727182186296</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727182186296</updated>
+      <workItem from="1727182187838" duration="10000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

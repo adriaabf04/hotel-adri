@@ -36,9 +36,14 @@ public class AdminService {
             return adminDTO;
         }
 
-        public Admin findByEmail(String email) {
+        public AdminDTO findByEmail(String email) {
             Admin admin = administradorRespository.findByEmail(email);
             AdminDTO adminDTO = new AdminDTO(admin.getName(), admin.getEmail());
+            return adminDTO;
+        }
+
+        public Admin findByEmailDetail(String email) {
+            Admin admin = administradorRespository.findByEmail(email);
             return admin;
         }
 }

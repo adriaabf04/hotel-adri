@@ -32,7 +32,7 @@ public class AdminController {
 
         @GetMapping
         @RequestMapping("/{email}")
-        public Admin findById(@PathVariable String email) {
+        public AdminDTO findByEmail(@PathVariable String email) {
             return adminService.findByEmail(email);
         }
 }

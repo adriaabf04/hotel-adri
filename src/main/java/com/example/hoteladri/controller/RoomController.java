@@ -1,8 +1,10 @@
 package com.example.hoteladri.controller;
 
+import com.example.hoteladri.dto.RoomDTO;
 import com.example.hoteladri.model.Room;
 import com.example.hoteladri.service.RoomService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +23,14 @@ public class RoomController {
     private RoomService habitacionRepository;
         
     @GetMapping
-    public List<Room> obtainAllRooms() {
-        return habitacionRepository.obtainAllRooms();
+    public ArrayList<RoomDTO> obtainAllRooms() {
+        return habitacionRepository.getAllRooms();
     }
         
     @PostMapping
     @RequestMapping("/crear")
     public Room keepRoom(@RequestBody Room habitacion) {
-        return habitacionRepository.keepRoom(habitacion);
+        return habitacionRepository.saveRoom(habitacion);
     }
 
     @DeleteMapping
@@ -40,7 +42,7 @@ public class RoomController {
     @GetMapping
     @RequestMapping("/disponibles")
     public List<Room> obtainAvailableRooms() {
-        return habitacionRepository.obtainAvailableRooms();
+        return habitacionRepository.getAvailableRooms();
     }
 
     @PostMapping

@@ -1,35 +1,43 @@
 package com.example.hoteladri.service;
 
 import com.example.hoteladri.model.RoomStatus;
+import com.example.hoteladri.dto.RoomDTO;
 import com.example.hoteladri.model.Room;
 import com.example.hoteladri.repository.IRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RoomService {
        @Autowired
-        private IRoomRepository habitacionRepository;
+        private IRoomRepository roomRepository;
     
-        public List<Room> obtainAllRooms() {
-            return habitacionRepository.findAll();
+        public ArrayList<RoomDTO> getAllRooms() {
+            List<Room> rooms = roomRepository.findAll();
+            ArrayList<RoomDTO> roomDTOs = new ArrayList<>();
+            for (Room room : rooms) {
+                RoomDTO roomDTO = new RoomDTO(room.getNumberRoom(), room.getType(), room.getPrice(), room.getStatus());
+                roomDTOs.add(roomDTO);
+            }
+            return roomDTOs;
         }
     
-        public Room keepRoom(Room habitacion) {
-            return habitacionRepository.save(habitacion);
+        public Room saveRoom(Room room) {
+            return roomRepository.save(room);
         }
 
-        public void deleteRoom(Room habitacion) {
-            habitacionRepository.delete(habitacion);
+        public void deleteRoom(Room room) {
+            roomRepository.delete(room);
         }
 
-        public Room updateRoom(Room habitacion) {
-            return habitacionRepository.save(habitacion);
+        public Room updateRoom(Room room) {
+            return roomRepository.save(room);
         }
 
-        public List<Room> obtainAvailableRooms() {
-            return habitacionRepository.findByStatus(RoomStatus.DISPONIBLE);
+        public List<Room> getAvailableRooms() {
+            return roomRepository.findByStatus(RoomStatus.DISPONIBLE);
         }
 }

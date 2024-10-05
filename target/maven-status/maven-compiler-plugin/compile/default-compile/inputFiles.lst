@@ -8,7 +8,10 @@
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/PaymentController.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/RoomController.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/dto/AdminDTO.java
+/home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/dto/BookingDTO.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/dto/ClientDTO.java
+/home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/dto/PaymentDTO.java
+/home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/dto/RoomDTO.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/model/Admin.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/model/Booking.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/model/BookingStatus.java
