@@ -10,13 +10,13 @@ import java.util.List;
 @Service
 public class PaymentService {
     @Autowired
-        private IPaymentRepository pagoRepository;
-    
-        public List<Payment> obtaiPayments() {
-            return pagoRepository.findAll();
-        }
-    
-        public Payment obtainPaymentById(Long id) {
-            return pagoRepository.findById(id).orElse(null);
-        }
+    private IPaymentRepository pagoRepository;
+
+    public List<Payment> obtaiPayments() {
+        return pagoRepository.findAll();
+    }
+
+    public Payment obtainPaymentById(Long id) {
+        return pagoRepository.findById(id).orElse(null);
+    }
 }

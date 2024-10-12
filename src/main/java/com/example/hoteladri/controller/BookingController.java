@@ -2,6 +2,7 @@ package com.example.hoteladri.controller;
 
 import com.example.hoteladri.model.Booking;
 import com.example.hoteladri.model.Client;
+import com.example.hoteladri.model.Payment;
 import com.example.hoteladri.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -44,7 +45,7 @@ public class BookingController {
 
         @PostMapping
         @RequestMapping("/cliente/{cliente}/confirmar")
-        public Booking confirmBooking(@PathVariable Long cliente,  @RequestBody Booking reserva) {
+        public Payment confirmBooking(@PathVariable Long cliente,  @RequestBody Booking reserva) {
             return reservaService.confirmBooking(reserva, cliente);
         }
 
