@@ -46,6 +46,7 @@ public class ClientService {
         client.setName(usuario.getName());
         client.setSurname(usuario.getSurname());
         client.setEmail(usuario.getEmail());
+        clienteRepository.save(client);
         ClientDTO clientDTO = new ClientDTO(client.getId(), client.getName(), client.getSurname(), client.getEmail());
         return clientDTO;
     }

@@ -24,6 +24,15 @@ public class RoomService {
             }
             return roomDTOs;
         }
+
+        public RoomDTO getRoomById(Long id) {
+            Room room = roomRepository.findById(id).orElse(null);
+            if (room != null) {
+                return new RoomDTO(room.getNumberRoom(), room.getType(), room.getPrice(), room.getStatus());
+            } else {
+                throw new RuntimeException("Room not found");
+            }
+        }
     
         public Room saveRoom(Room room) {
             return roomRepository.save(room);

@@ -48,7 +48,6 @@ public class BookingService {
             return null;
         } else {
             Client cliente = clienteRepository.findById(clienteId).orElse(null);
-            habitacion.setStatus(RoomStatus.BUSY);
             reserva.setClient(cliente);
             reserva.setRoom(habitacion);
             reserva.setStatus(BookingStatus.PENDING);
@@ -57,13 +56,15 @@ public class BookingService {
         return reservaRepository.save(reserva);
     }
 
-    public Payment confirmBooking(Booking reserva, Long clienteId) {
-        Client cliente = clienteRepository.findById(clienteId).orElse(null);
-        reserva.setClient(cliente);
-        reserva.confirmarReserva();
-        reservaRepository.save(reserva);
+    public Payment confirmBooking(Booking reservaa, Long clienteId) {
+        Room habitacion = habitacionRepository.findById(reservaa.getRoom().getId()).orElse(null);
+        habitacion.setStatus(RoomStatus.BUSY);
+        habitacionRepository.save(habitacion);
+        Booking booking = reservaRepository.findById(reservaa.getId()).orElse(null);
+        booking.confirmarReserva();
+        reservaRepository.save(booking);
         Payment pago = new Payment();
-        pago.setBooking(reserva);
+        pago.setBooking(booking);
         pago.setStatus(PaymentStatus.TRANSFERENCE);
         pago.setDate(new java.sql.Date(System.currentTimeMillis()));
         return pagoRepository.save(pago);
@@ -75,6 +76,9 @@ public class BookingService {
             reserva.setClient(cliente);
             reserva.cancelarReserva();
             reservaRepository.save(reserva);
+            Room habitacion = habitacionRepository.findById(reserva.getRoom().getId()).orElse(null);
+            habitacion.setStatus(RoomStatus.DISPONIBLE);
+            habitacionRepository.save(habitacion);
         } else {
             throw new RuntimeException("No se puede cancelar una reserva confirmada");
         }
