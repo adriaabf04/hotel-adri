@@ -2,6 +2,7 @@ package com.example.hoteladri.dto;
 
 import java.sql.Date;
 
+import com.example.hoteladri.model.Booking;
 import com.example.hoteladri.model.BookingStatus;
 
 public class BookingDTO {
@@ -20,6 +21,14 @@ public class BookingDTO {
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = BookingStatus.PENDING;
+    }
+
+    public BookingDTO(Booking booking) {
+        this.roomDTO = new RoomDTO(booking.getRoom().getNumberRoom(), booking.getRoom().getType(), booking.getRoom().getPrice(), booking.getRoom().getStatus());
+        this.clientDTO = new ClientDTO(booking.getClient().getId(), booking.getClient().getName(), booking.getClient().getSurname(), booking.getClient().getEmail());
+        this.startDate = booking.getstartDate();
+        this.endDate = booking.getFechaFin();
+        this.status = booking.getStatus();
     }
 
     public RoomDTO getRoomDTO() {

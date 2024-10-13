@@ -1,8 +1,9 @@
 package com.example.hoteladri.controller;
 
+import com.example.hoteladri.dto.BookingDTO;
+import com.example.hoteladri.dto.PaymentDTO;
 import com.example.hoteladri.model.Booking;
 import com.example.hoteladri.model.Client;
-import com.example.hoteladri.model.Payment;
 import com.example.hoteladri.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,29 +24,29 @@ public class BookingController {
         private BookingService reservaService;
         
         @GetMapping
-        public List<Booking> obtainAllBookings() {
+        public List<BookingDTO> obtainAllBookings() {
             return reservaService.obtainAllBookings();
         }
 
         @GetMapping("/{id}")
-        public Booking obtainBookingById(@PathVariable Long id) {
+        public BookingDTO obtainBookingById(@PathVariable Long id) {
             return reservaService.obtainBookingById(id);
         }
 
         @GetMapping("/cliente/{cliente}")
-        public List<Booking> obtainBookingByClient(@PathVariable Client cliente) {
+        public List<BookingDTO> obtainBookingByClient(@PathVariable Client cliente) {
             return reservaService.obtainBookingByClient(cliente);
         }
 
         @PostMapping
         @RequestMapping("/habitacion/{habitacion}/crear")
-        public Booking keepBooking(@PathVariable int habitacion, @RequestBody Booking reserva) {
+        public BookingDTO keepBooking(@PathVariable int habitacion, @RequestBody Booking reserva) {
             return reservaService.keepBooking(reserva, habitacion);
         }
 
         @PostMapping
         @RequestMapping("/habitacion/{habitacion}/confirmar")
-        public Payment confirmBooking(@PathVariable int habitacion, @RequestBody Booking reserva) {
+        public PaymentDTO confirmBooking(@PathVariable int habitacion, @RequestBody Booking reserva) {
             return reservaService.confirmBooking(reserva, habitacion);
         }
 

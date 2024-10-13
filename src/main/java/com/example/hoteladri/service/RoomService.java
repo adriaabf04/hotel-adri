@@ -30,19 +30,27 @@ public class RoomService {
             return new RoomDTO(room.getNumberRoom(), room.getType(), room.getPrice(), room.getStatus());
         }
     
-        public Room saveRoom(Room room) {
-            return roomRepository.save(room);
+        public RoomDTO saveRoom(Room room) {
+            Room roomSaved = roomRepository.save(room);
+            return new RoomDTO(roomSaved.getNumberRoom(), roomSaved.getType(), roomSaved.getPrice(), roomSaved.getStatus());
         }
 
         public void deleteRoom(Room room) {
             roomRepository.delete(room);
         }
 
-        public Room updateRoom(Room room) {
-            return roomRepository.save(room);
+        public RoomDTO updateRoom(Room room) {
+            Room roomUpdated = roomRepository.save(room);
+            return new RoomDTO(roomUpdated.getNumberRoom(), roomUpdated.getType(), roomUpdated.getPrice(), roomUpdated.getStatus());
         }
 
-        public List<Room> getAvailableRooms() {
-            return roomRepository.findByStatus(RoomStatus.DISPONIBLE);
+        public List<RoomDTO> getAvailableRooms() {
+            List<Room> rooms = roomRepository.findByStatus(RoomStatus.DISPONIBLE);
+            List<RoomDTO> roomDTOs = new ArrayList<>();
+            for (Room room : rooms) {
+                RoomDTO roomDTO = new RoomDTO(room.getNumberRoom(), room.getType(), room.getPrice(), room.getStatus());
+                roomDTOs.add(roomDTO);
+            }
+            return roomDTOs;
         }
 }

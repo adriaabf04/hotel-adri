@@ -2,15 +2,17 @@ package com.example.hoteladri.dto;
 
 import java.sql.Date;
 
+import com.example.hoteladri.model.PaymentStatus;
+
 public class PaymentDTO {
     private Date date;
     private BookingDTO booking;
-    private PaymentDTO status;
+    private PaymentStatus status;
 
     public PaymentDTO() {
     }
 
-    public PaymentDTO(Date date, BookingDTO booking, PaymentDTO status) {
+    public PaymentDTO(Date date, BookingDTO booking, PaymentStatus status) {
         this.date = date;
         this.booking = booking;
         this.status = status;
@@ -32,11 +34,11 @@ public class PaymentDTO {
         this.booking = booking;
     }
 
-    public PaymentDTO getStatus() {
+    public PaymentStatus getStatus() {
         return status;
     }
 
-    public void setStatus(PaymentDTO status) {
+    public void setStatus(PaymentStatus status) {
         this.status = status;
     }
 }

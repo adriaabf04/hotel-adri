@@ -36,7 +36,7 @@ public class RoomController {
         
     @PostMapping
     @RequestMapping("/crear")
-    public Room keepRoom(@RequestBody Room habitacion) {
+    public RoomDTO keepRoom(@RequestBody Room habitacion) {
         return habitacionRepository.saveRoom(habitacion);
     }
 
@@ -48,13 +48,13 @@ public class RoomController {
 
     @GetMapping
     @RequestMapping("/disponibles")
-    public List<Room> obtainAvailableRooms() {
+    public List<RoomDTO> obtainAvailableRooms() {
         return habitacionRepository.getAvailableRooms();
     }
 
     @PostMapping
     @RequestMapping("/actualizar")
-    public Room updateRoom(@RequestBody Room habitacion) {
+    public RoomDTO updateRoom(@RequestBody Room habitacion) {
         return habitacionRepository.updateRoom(habitacion);
     }
 }
