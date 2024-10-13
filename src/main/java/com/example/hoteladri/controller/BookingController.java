@@ -36,22 +36,22 @@ public class BookingController {
         public List<Booking> obtainBookingByClient(@PathVariable Client cliente) {
             return reservaService.obtainBookingByClient(cliente);
         }
-        
+
         @PostMapping
-        @RequestMapping("/cliente/{cliente}/crear")
-        public Booking keepBooking(@PathVariable Long cliente,  @RequestBody Booking reserva) {
-            return reservaService.keepBooking(reserva, cliente);
+        @RequestMapping("/habitacion/{habitacion}/crear")
+        public Booking keepBooking(@PathVariable int habitacion, @RequestBody Booking reserva) {
+            return reservaService.keepBooking(reserva, habitacion);
         }
 
         @PostMapping
-        @RequestMapping("/cliente/{cliente}/confirmar")
-        public Payment confirmBooking(@PathVariable Long cliente,  @RequestBody Booking reserva) {
-            return reservaService.confirmBooking(reserva, cliente);
+        @RequestMapping("/habitacion/{habitacion}/confirmar")
+        public Payment confirmBooking(@PathVariable int habitacion, @RequestBody Booking reserva) {
+            return reservaService.confirmBooking(reserva, habitacion);
         }
 
-        @DeleteMapping("/cliente/{cliente}/cancelar")
-        public void cancelBooking(@PathVariable Long cliente, @RequestBody Booking reserva) {
-            reservaService.cancelBooking(reserva, cliente);
+        @DeleteMapping("/habitacion/{habitacion}/cancelar")
+        public void cancelBooking(@PathVariable int habitacion, @RequestBody Booking reserva) {
+            reservaService.cancelBooking(reserva, habitacion);
         }
         
 }

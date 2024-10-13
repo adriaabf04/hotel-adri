@@ -29,9 +29,9 @@ public class RoomController {
     }
 
     @GetMapping
-    @RequestMapping("/{id}")
-    public RoomDTO obtainRoomById(@PathVariable Long id) {
-        return habitacionRepository.getRoomById(id);
+    @RequestMapping("/{numberRoom}")
+    public RoomDTO obtainRoomByNumberRoom(@PathVariable int numberRoom) {
+        return habitacionRepository.getRoomByNumberRoom(numberRoom);
     }
         
     @PostMapping

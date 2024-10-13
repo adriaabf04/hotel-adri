@@ -42,45 +42,51 @@ public class BookingService {
     }
         
         
-    public Booking keepBooking(Booking reserva, Long clienteId) {
-        Room habitacion = habitacionRepository.findById(reserva.getRoom().getId()).orElse(null);
-        if(habitacion.getStatus() == RoomStatus.BUSY || habitacion.getStatus() == RoomStatus.MAINTENANCE) {
-            return null;
-        } else {
-            Client cliente = clienteRepository.findById(clienteId).orElse(null);
-            reserva.setClient(cliente);
-            reserva.setRoom(habitacion);
+    public Booking keepBooking(Booking reserva, int habitacionId) {
+        Room room = habitacionRepository.findByNumberRoom(habitacionId);
+        if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
+            reserva.setRoom(room);
             reserva.setStatus(BookingStatus.PENDING);
-        }
-        
-        return reservaRepository.save(reserva);
-    }
-
-    public Payment confirmBooking(Booking reservaa, Long clienteId) {
-        Room habitacion = habitacionRepository.findById(reservaa.getRoom().getId()).orElse(null);
-        habitacion.setStatus(RoomStatus.BUSY);
-        habitacionRepository.save(habitacion);
-        Booking booking = reservaRepository.findById(reservaa.getId()).orElse(null);
-        booking.confirmarReserva();
-        reservaRepository.save(booking);
-        Payment pago = new Payment();
-        pago.setBooking(booking);
-        pago.setStatus(PaymentStatus.TRANSFERENCE);
-        pago.setDate(new java.sql.Date(System.currentTimeMillis()));
-        return pagoRepository.save(pago);
-    }
-
-    public void cancelBooking(Booking reserva, Long clienteId) {
-        if(reserva.getStatus().equals(BookingStatus.PENDING)) {
-            Client cliente = clienteRepository.findById(clienteId).orElse(null);
+            Client cliente = clienteRepository.findById(reserva.getClient().getId()).orElse(null);
             reserva.setClient(cliente);
-            reserva.cancelarReserva();
-            reservaRepository.save(reserva);
-            Room habitacion = habitacionRepository.findById(reserva.getRoom().getId()).orElse(null);
-            habitacion.setStatus(RoomStatus.DISPONIBLE);
-            habitacionRepository.save(habitacion);
+            return reservaRepository.save(reserva);
         } else {
-            throw new RuntimeException("No se puede cancelar una reserva confirmada");
+            throw new RuntimeException("La habitación no está disponible");
+        }
+    }
+
+    public Payment confirmBooking(Booking reserva, int habitacionId) {
+        Room room = habitacionRepository.findByNumberRoom(habitacionId);
+        if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
+            reserva.setRoom(room);
+            reserva.setStatus(BookingStatus.CONFIRMED);
+            Client cliente = clienteRepository.findById(reserva.getClient().getId()).orElse(null);
+            reserva.setClient(cliente);
+            reservaRepository.save(reserva);
+            room.setStatus(RoomStatus.DISPONIBLE);
+            habitacionRepository.save(room);
+            Payment pago = new Payment();
+            pago.setBooking(reserva);
+            pago.setDate(java.sql.Date.valueOf(java.time.LocalDate.now()));
+            pago.setStatus(PaymentStatus.TRANSFERENCE);
+            return pagoRepository.save(pago);
+        } else {
+            throw new RuntimeException("La habitación no está disponible");
+        }
+    }
+
+    public void cancelBooking(Booking reserva, int habitacionId) {
+        Room room = habitacionRepository.findByNumberRoom(habitacionId);
+        if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
+            reserva.setRoom(room);
+            reserva.setStatus(BookingStatus.CANCELLED);
+            Client cliente = clienteRepository.findById(reserva.getClient().getId()).orElse(null);
+            reserva.setClient(cliente);
+            reservaRepository.save(reserva);
+            room.setStatus(RoomStatus.DISPONIBLE);
+            habitacionRepository.save(room);
+        } else {
+            throw new RuntimeException("La habitación no está disponible");
         }
     }
 }
