@@ -21,40 +21,40 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoomController {
         
     @Autowired
-    private RoomService habitacionRepository;
+    private RoomService roomRepository;
         
     @GetMapping
     public ArrayList<RoomDTO> obtainAllRooms() {
-        return habitacionRepository.getAllRooms();
+        return roomRepository.getAllRooms();
     }
 
     @GetMapping
     @RequestMapping("/{numberRoom}")
     public RoomDTO obtainRoomByNumberRoom(@PathVariable int numberRoom) {
-        return habitacionRepository.getRoomByNumberRoom(numberRoom);
+        return roomRepository.getRoomByNumberRoom(numberRoom);
     }
         
     @PostMapping
     @RequestMapping("/crear")
     public RoomDTO keepRoom(@RequestBody Room habitacion) {
-        return habitacionRepository.saveRoom(habitacion);
+        return roomRepository.saveRoom(habitacion);
     }
 
     @DeleteMapping
     @RequestMapping("/eliminar")
     public void deleteRoom(@RequestBody Room habitacion) {
-        habitacionRepository.deleteRoom(habitacion);
+        roomRepository.deleteRoom(habitacion);
     }
 
     @GetMapping
     @RequestMapping("/disponibles")
     public List<RoomDTO> obtainAvailableRooms() {
-        return habitacionRepository.getAvailableRooms();
+        return roomRepository.getAvailableRooms();
     }
 
     @PostMapping
     @RequestMapping("/actualizar")
     public RoomDTO updateRoom(@RequestBody Room habitacion) {
-        return habitacionRepository.updateRoom(habitacion);
+        return roomRepository.updateRoom(habitacion);
     }
 }

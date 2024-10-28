@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                    .requestMatchers("/","/administradores", "/habitaciones/disponibles", "/reservas/{id}", "/reservas/{id}/crear", "/reservas/{id}/actualizar", "/reservas/{id}/cancelar").permitAll()
+                    .requestMatchers("/api/swagger-ui/**", "/api/docs/","/","/api/administradores", "/api/habitaciones/disponibles", "/api/reservas/{id}", "/api/reservas/{id}/crear", "/api/reservas/{id}/actualizar", "/api/reservas/{id}/cancelar").permitAll()
                     .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults())

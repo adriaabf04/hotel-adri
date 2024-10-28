@@ -21,92 +21,92 @@ import java.util.List;
 @Service
 public class BookingService {
     @Autowired
-    private IBookingRepository reservaRepository;
+    private IBookingRepository bookingRepository;
 
     @Autowired
-    private IClientRepository clienteRepository;
+    private IClientRepository clientRepository;
 
     @Autowired 
-    private IRoomRepository habitacionRepository;
+    private IRoomRepository roomRepository;
 
     @Autowired
-    private IPaymentRepository pagoRepository;
+    private IPaymentRepository paymentRepository;
     
     public List<BookingDTO> obtainAllBookings() {
-        List<Booking> reservas = reservaRepository.findAll();
-        List<BookingDTO> reservaDTOs = new ArrayList<>();
-        for (Booking reserva : reservas) {
-            BookingDTO reservaDTO = new BookingDTO(reserva);
-            reservaDTOs.add(reservaDTO);
+        List<Booking> bookings = bookingRepository.findAll();
+        List<BookingDTO> bookingDTOs = new ArrayList<>();
+        for (Booking booking : bookings) {
+            BookingDTO bookingDTO = new BookingDTO(booking);
+            bookingDTOs.add(bookingDTO);
         }
-        return reservaDTOs;
+        return bookingDTOs;
     }
 
     public List<BookingDTO> obtainBookingByClient(Client client) {
-        List<Booking> reservas = reservaRepository.findByClient(client);
-        List<BookingDTO> reservaDTOs = new ArrayList<>();
-        for (Booking reserva : reservas) {
-            BookingDTO reservaDTO = new BookingDTO(reserva);
-            reservaDTOs.add(reservaDTO);
+        List<Booking> bookings = bookingRepository.findByClient(client);
+        List<BookingDTO> bookingDTOs = new ArrayList<>();
+        for (Booking booking : bookings) {
+            BookingDTO bookingDTO = new BookingDTO(booking);
+            bookingDTOs.add(bookingDTO);
         }
-        return reservaDTOs;
+        return bookingDTOs;
     }
 
     public BookingDTO obtainBookingById(Long id) {
-        Booking reserva = reservaRepository.findById(id).orElse(null);
-        if(reserva != null) {
-            return new BookingDTO(reserva);
+        Booking booking = bookingRepository.findById(id).orElse(null);
+        if(booking != null) {
+            return new BookingDTO(booking);
         } else {
             throw new RuntimeException("Reserva no encontrada");
         }
     }
         
         
-    public BookingDTO keepBooking(Booking reserva, int habitacionId) {
-        Room room = habitacionRepository.findByNumberRoom(habitacionId);
+    public BookingDTO keepBooking(Booking booking, int roomId) {
+        Room room = roomRepository.findByNumberRoom(roomId);
         if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
-            reserva.setRoom(room);
-            reserva.setStatus(BookingStatus.PENDING);
-            Client cliente = clienteRepository.findById(reserva.getClient().getId()).orElse(null);
-            reserva.setClient(cliente);
-            reservaRepository.save(reserva);
-            return new BookingDTO(reserva);
+            booking.setRoom(room);
+            booking.setStatus(BookingStatus.PENDING);
+            Client cliente = clientRepository.findById(booking.getClient().getId()).orElse(null);
+            booking.setClient(cliente);
+            bookingRepository.save(booking);
+            return new BookingDTO(booking);
         } else {
             throw new RuntimeException("La habitación no está disponible");
         }
     }
 
-    public PaymentDTO confirmBooking(Booking reserva, int habitacionId) {
-        Room room = habitacionRepository.findByNumberRoom(habitacionId);
+    public PaymentDTO confirmBooking(Booking booking, int roomId) {
+        Room room = roomRepository.findByNumberRoom(roomId);
         if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
-            reserva.setRoom(room);
-            reserva.setStatus(BookingStatus.CONFIRMED);
-            Client cliente = clienteRepository.findById(reserva.getClient().getId()).orElse(null);
-            reserva.setClient(cliente);
-            reservaRepository.save(reserva);
+            booking.setRoom(room);
+            booking.setStatus(BookingStatus.CONFIRMED);
+            Client cliente = clientRepository.findById(booking.getClient().getId()).orElse(null);
+            booking.setClient(cliente);
+            bookingRepository.save(booking);
             room.setStatus(RoomStatus.BUSY);
-            habitacionRepository.save(room);
+            roomRepository.save(room);
             Payment pago = new Payment();
-            pago.setBooking(reserva);
+            pago.setBooking(booking);
             pago.setDate(java.sql.Date.valueOf(java.time.LocalDate.now()));
             pago.setStatus(PaymentStatus.TRANSFERENCE);
-            Payment paymentSaved = pagoRepository.save(pago);
+            Payment paymentSaved = paymentRepository.save(pago);
             return new PaymentDTO(paymentSaved.getDate(), new BookingDTO(paymentSaved.getBooking()), paymentSaved.getStatus());
         } else {
             throw new RuntimeException("La habitación no está disponible");
         }
     }
 
-    public void cancelBooking(Booking reserva, int habitacionId) {
-        Room room = habitacionRepository.findByNumberRoom(habitacionId);
+    public void cancelBooking(Booking booking, int roomId) {
+        Room room = roomRepository.findByNumberRoom(roomId);
         if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
-            reserva.setRoom(room);
-            reserva.setStatus(BookingStatus.CANCELLED);
-            Client cliente = clienteRepository.findById(reserva.getClient().getId()).orElse(null);
-            reserva.setClient(cliente);
-            reservaRepository.save(reserva);
+            booking.setRoom(room);
+            booking.setStatus(BookingStatus.CANCELLED);
+            Client cliente = clientRepository.findById(booking.getClient().getId()).orElse(null);
+            booking.setClient(cliente);
+            bookingRepository.save(booking);
             room.setStatus(RoomStatus.DISPONIBLE);
-            habitacionRepository.save(room);
+            roomRepository.save(room);
         } else {
             throw new RuntimeException("La habitación no está disponible");
         }

@@ -12,21 +12,20 @@ import com.example.hoteladri.model.Admin;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final AdminService administradorService;
+    private final AdminService administratorService;
 
-    public CustomUserDetailsService(AdminService administradorService) {
-        this.administradorService = administradorService;
+    public CustomUserDetailsService(AdminService administratorService) {
+        this.administratorService = administratorService;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        // Aquí buscas el usuario en la base de datos a través del servicio de Administradores.
-        Admin administrador = administradorService.findByEmailDetail(email);
+        Admin administrator = administratorService.findByEmailDetail(email);
         
-        if (administrador != null) {
+        if (administrator != null) {
             User.UserBuilder builder = User.builder();
-            UserDetails usuario = builder.username(administrador.getEmail())
-            .password(administrador.getPassword())
+            UserDetails usuario = builder.username(administrator.getEmail())
+            .password(administrator.getPassword())
             .roles()
             .build();
             return usuario;

@@ -17,33 +17,33 @@ public class AdminService {
         private PasswordEncoder passwordEncoder;
     
         @Autowired
-        private IAdminRepository administradorRespository;
+        private IAdminRepository administratorRespository;
     
         public ArrayList<AdminDTO> obtainAllUsers() {
-            List<Admin> administradores = administradorRespository.findAll();
+            List<Admin> administrators = administratorRespository.findAll();
             ArrayList<AdminDTO> adminDTOList = new ArrayList<>();
-            for (Admin administrador : administradores) {
-                AdminDTO adminDTO = new AdminDTO(administrador.getName(), administrador.getEmail());
+            for (Admin administrator : administrators) {
+                AdminDTO adminDTO = new AdminDTO(administrator.getName(), administrator.getEmail());
                 adminDTOList.add(adminDTO);
             }
             return adminDTOList;
         }
     
-        public AdminDTO keepUser(Admin administrador) {
-            administrador.setPassword(passwordEncoder.encode(administrador.getPassword()));
-            administradorRespository.save(administrador);
-            AdminDTO adminDTO = new AdminDTO(administrador.getName(), administrador.getEmail());
+        public AdminDTO keepUser(Admin administrator) {
+            administrator.setPassword(passwordEncoder.encode(administrator.getPassword()));
+            administratorRespository.save(administrator);
+            AdminDTO adminDTO = new AdminDTO(administrator.getName(), administrator.getEmail());
             return adminDTO;
         }
 
         public AdminDTO findByEmail(String email) {
-            Admin admin = administradorRespository.findByEmail(email);
+            Admin admin = administratorRespository.findByEmail(email);
             AdminDTO adminDTO = new AdminDTO(admin.getName(), admin.getEmail());
             return adminDTO;
         }
 
         public Admin findByEmailDetail(String email) {
-            Admin admin = administradorRespository.findByEmail(email);
+            Admin admin = administratorRespository.findByEmail(email);
             return admin;
         }
 }

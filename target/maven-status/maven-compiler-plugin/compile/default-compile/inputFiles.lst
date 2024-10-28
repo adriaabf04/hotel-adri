@@ -2,6 +2,7 @@
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/HotelAdriApplication.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/MainFile.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/config/SecurityConfig.java
+/home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/config/SwaggerConfig.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/AdminController.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/BookingController.java
 /home/usuario/Escritorio/proyectos/hotel-adri/src/main/java/com/example/hoteladri/controller/ClientController.java

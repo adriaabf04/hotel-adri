@@ -13,10 +13,10 @@ import java.util.List;
 public class ClientService {
 
     @Autowired
-    private IClientRepository clienteRepository;
+    private IClientRepository clientRepository;
 
     public ArrayList<ClientDTO> obtainAllUsers() {
-        List<Client> users = clienteRepository.findAll();
+        List<Client> users = clientRepository.findAll();
         ArrayList<ClientDTO> clientDTOList = new ArrayList<>();
         for (Client user : users) {
             ClientDTO clientDTO = new ClientDTO(user.getId(), user.getName(), user.getSurname(), user.getEmail());
@@ -25,28 +25,28 @@ public class ClientService {
         return clientDTOList;
     }
 
-    public ClientDTO keepUser(Client usuario) {
-        clienteRepository.save(usuario);
-        ClientDTO clientDTO = new ClientDTO(usuario.getId(), usuario.getName(), usuario.getSurname(), usuario.getEmail());
+    public ClientDTO keepUser(Client user) {
+        clientRepository.save(user);
+        ClientDTO clientDTO = new ClientDTO(user.getId(), user.getName(), user.getSurname(), user.getEmail());
         return clientDTO;
     }
 
     public ClientDTO keepUserById(Long id) {
-        Client client = clienteRepository.findById(id).orElse(null);
+        Client client = clientRepository.findById(id).orElse(null);
         ClientDTO clientDTO = new ClientDTO(client.getId(),client.getName(), client.getSurname(), client.getEmail());
         return clientDTO;
     }
 
     public void deleteUserById(Long id) {
-        clienteRepository.deleteById(id);
+        clientRepository.deleteById(id);
     }
 
-    public ClientDTO updateUser(Client usuario, Long id) {
-        Client client = clienteRepository.findById(id).orElse(null);
-        client.setName(usuario.getName());
-        client.setSurname(usuario.getSurname());
-        client.setEmail(usuario.getEmail());
-        clienteRepository.save(client);
+    public ClientDTO updateUser(Client user, Long id) {
+        Client client = clientRepository.findById(id).orElse(null);
+        client.setName(user.getName());
+        client.setSurname(user.getSurname());
+        client.setEmail(user.getEmail());
+        clientRepository.save(client);
         ClientDTO clientDTO = new ClientDTO(client.getId(), client.getName(), client.getSurname(), client.getEmail());
         return clientDTO;
     }
