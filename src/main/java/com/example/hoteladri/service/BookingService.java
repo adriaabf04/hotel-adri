@@ -78,16 +78,17 @@ public class BookingService {
 
     public PaymentDTO confirmBooking(Booking booking, int roomId) {
         Room room = roomRepository.findByNumberRoom(roomId);
+        Booking bookingToConfirm = bookingRepository.findById(booking.getId()).orElse(null);
         if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
-            booking.setRoom(room);
-            booking.setStatus(BookingStatus.CONFIRMED);
-            Client cliente = clientRepository.findById(booking.getClient().getId()).orElse(null);
-            booking.setClient(cliente);
-            bookingRepository.save(booking);
+            bookingToConfirm.setRoom(room);
+            bookingToConfirm.setStatus(BookingStatus.CONFIRMED);
+            Client cliente = clientRepository.findById(bookingToConfirm.getClient().getId()).orElse(null);
+            bookingToConfirm.setClient(cliente);
             room.setStatus(RoomStatus.BUSY);
             roomRepository.save(room);
+            bookingRepository.save(bookingToConfirm);
             Payment pago = new Payment();
-            pago.setBooking(booking);
+            pago.setBooking(bookingToConfirm);
             pago.setDate(java.sql.Date.valueOf(java.time.LocalDate.now()));
             pago.setStatus(PaymentStatus.TRANSFERENCE);
             Payment paymentSaved = paymentRepository.save(pago);
@@ -99,12 +100,13 @@ public class BookingService {
 
     public void cancelBooking(Booking booking, int roomId) {
         Room room = roomRepository.findByNumberRoom(roomId);
+        Booking bookingToCancel = bookingRepository.findById(booking.getId()).orElse(null);
         if(room.getStatus().equals(RoomStatus.DISPONIBLE)) {
-            booking.setRoom(room);
-            booking.setStatus(BookingStatus.CANCELLED);
+            bookingToCancel.setRoom(room);
+            bookingToCancel.setStatus(BookingStatus.CANCELLED);
             Client cliente = clientRepository.findById(booking.getClient().getId()).orElse(null);
-            booking.setClient(cliente);
-            bookingRepository.save(booking);
+            bookingToCancel.setClient(cliente);
+            bookingRepository.save(bookingToCancel);
             room.setStatus(RoomStatus.DISPONIBLE);
             roomRepository.save(room);
         } else {
